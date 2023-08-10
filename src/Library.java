@@ -14,8 +14,9 @@ public class Library {
     }
 
     // Book methods
-    public void addBook(Book book) {
-        books.add(book);
+    public void addBook(String title, String author, String publisher, String synopsis, String type) {
+        Book b = new Book (title, author, publisher, synopsis, type);
+        books.add(b);
     }
 
     public void removeBook(Book book) {
@@ -32,8 +33,9 @@ public class Library {
     }
 
     // Member methods
-    public void addMember(Member member) {
-        members.add(member);
+    public void addMember(String name, String email, String phone) {
+        Member m = new Member(name, email, phone);
+        members.add(m);
     }
 
     public void removeMember(Member member) {

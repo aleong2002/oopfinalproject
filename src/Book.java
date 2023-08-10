@@ -19,12 +19,12 @@ public class Book {
     }
 
     // Getting/Setting availability of the book
-    public boolean checkAvailability() {
+    public boolean getAvailability() {
         return availability;
     }
 
-    public void reserveBook() {
-        this.availability = false;
+    public void setAvailability(boolean b) {
+        this.availability = b;
     }
 
     // Getters
