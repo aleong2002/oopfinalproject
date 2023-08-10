@@ -4,15 +4,15 @@ import java.util.List;
 public class Member {
 
     // Variables
-    private int memberId;
+    private static int memberId;
     private String name;
     private String email;
     private String phone;
     private List<Book> borrowedBooks;
 
     // Constructor
-    public Member(int memberId, String name, String email, String phone) {
-        this.memberId = memberId;
+    public Member(String name, String email, String phone) {
+        this.memberId++;
         this.name = name;
         this.email = email;
         this.phone = phone;
@@ -21,8 +21,8 @@ public class Member {
 
     // Getting/Setting availability of the book
     public void borrowBook(Book book) {
-        if(book.checkAvailability()) { // Making sure book is available
-            book.reserveBook(); // Setting the book to be unavailable
+        if(book.getAvailability()) { // Making sure book is available
+            book.setAvailability(false); // Setting the book to be unavailable
             borrowedBooks.add(book);
         } else {
             System.out.println("Book is not available for borrowing.");
@@ -32,7 +32,7 @@ public class Member {
     public void returnBook(Book book) {
         if(borrowedBooks.contains(book)) { // Making sure the book was already borrowed
             borrowedBooks.remove(book);
-            book.reserveBook(); // Setting the book to be available again
+            book.setAvailability(true); // Setting the book to be available again
         }
     }
 
