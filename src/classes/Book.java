@@ -1,19 +1,21 @@
+package classes;
+
 public class Book {
 
     // Variables
     private String title;
     private String author;
     private String publisher;
-    private String synopsis;
+    private String genre;
     private String bookType;
     private boolean availability;
 
     // Constructor
-    public Book(String title, String author, String publisher, String synopsis, String bookType) {
+    public Book(String title, String author, String publisher, String genre, String bookType) {
         this.title = title;
         this.author = author;
         this.publisher = publisher;
-        this.synopsis = synopsis;
+        this.genre = genre;
         this.bookType = bookType;
         this.availability = true; // Every book added starts as available
     }
@@ -41,8 +43,8 @@ public class Book {
         return publisher;
     }
 
-    public String getSynopsis() {
-        return synopsis;
+    public String getGenre() {
+        return genre;
     }
 
     public String getBookType() {

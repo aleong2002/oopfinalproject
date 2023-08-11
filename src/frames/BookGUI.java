@@ -1,8 +1,9 @@
+package frames;
+
+import classes.Book;
+
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
 
 
 public class BookGUI extends JFrame {
@@ -15,8 +16,8 @@ public class BookGUI extends JFrame {
     	contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
     	setContentPane(contentPane);
     	contentPane.setLayout(null);
-    	
-    	Book b = new Book("Title", "author", "publisher", "synopsis", "type");
+
+    	Book b = new Book("Title", "author", "publisher", "genre", "type");
     	//Title
     	String title = b.getTitle(); 
     	JLabel titleT = new JLabel(title);
@@ -35,14 +36,14 @@ public class BookGUI extends JFrame {
     	publ.setBounds(20, 130, 89, 16);
     	contentPane.add(publ);
     	
-    	//synopsis
-    	String synopsis = b.getSynopsis(); 
-    	JLabel synop = new JLabel(synopsis);
-    	synop.setBounds(20, 180, 89, 16);
-    	contentPane.add(synop);
+    	//genre
+    	String genre = b.getGenre();
+    	JLabel lblGenre = new JLabel(genre);
+		lblGenre.setBounds(20, 180, 89, 16);
+    	contentPane.add(lblGenre);
     	
     	//book type
-    	String bookType = b.getbookType(); 
+    	String bookType = b.getBookType();
     	JLabel BT = new JLabel(bookType);
     	BT.setBounds(20, 230, 89, 16);
     	contentPane.add(BT);

@@ -1,8 +1,9 @@
+package frames;
+
+import classes.Member;
+
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
 
 
 public class MemberGUI extends JFrame {
@@ -36,7 +37,7 @@ public class MemberGUI extends JFrame {
     	contentPane.add(PN);
     	
     	//ID
-    	String id = String.valueOf(m.getID()); 
+    	String id = String.valueOf(m.getMemberId());
     	JLabel memid = new JLabel(id);
     	memid.setBounds(20, 180, 89, 16);
     	contentPane.add(memid);

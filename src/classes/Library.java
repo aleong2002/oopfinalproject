@@ -1,3 +1,7 @@
+package classes;
+
+import classes.Book;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,13 +13,13 @@ public class Library {
 
     // Constructor
     public Library() {
-        this.books = new ArrayList<>(); // Library starts with no books
-        this.members = new ArrayList<>(); // Library starts with no members
+        this.books = new ArrayList<>(); // classes.Library starts with no books
+        this.members = new ArrayList<>(); // classes.Library starts with no members
     }
 
-    // Book methods
-    public void addBook(String title, String author, String publisher, String synopsis, String type) {
-        Book b = new Book (title, author, publisher, synopsis, type);
+    // classes.Book methods
+    public void addBook(String title, String author, String publisher, String genre, String type) {
+        Book b = new Book (title, author, publisher, genre, type);
         books.add(b);
     }
 
@@ -32,7 +36,7 @@ public class Library {
         return null; // Return null if no book is found with the given title (could replace with error message)
     }
 
-    // Member methods
+    // classes.Member methods
     public void addMember(String name, String email, String phone) {
         Member m = new Member(name, email, phone);
         members.add(m);

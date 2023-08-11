@@ -1,3 +1,5 @@
+package frames;
+
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.event.ActionEvent;
@@ -36,45 +38,26 @@ public class LibraryGUI extends JFrame {
         contentPane.add(btnBookGUI);
         
 
-        // Add Book
-        JButton btnAddBook = new JButton("Add Book");
-        btnAddBook.addActionListener(new ActionListener() {
+        // Manage Book
+        JButton btnManageBook = new JButton("Manage Books");
+        btnManageBook.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                System.exit(ABORT);
+                ManageBooks managebooksfrm = new ManageBooks(Main.library);
+                managebooksfrm.show();;
             }
         });
-        btnAddBook.setBounds(50, 100, 150, 29);
-        contentPane.add(btnAddBook);
+        btnManageBook.setBounds(50, 100, 150, 29);
+        contentPane.add(btnManageBook);
 
-        // Remove Book
-        JButton btnRemoveBook = new JButton("Remove Book");
-        btnRemoveBook.addActionListener(new ActionListener() {
+        // Manage Member
+        JButton btnManageMember = new JButton("Manage Member");
+        btnManageMember.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 System.exit(ABORT);
             }
         });
-        btnRemoveBook.setBounds(250, 100, 150, 29);
-        contentPane.add(btnRemoveBook);
-
-        // Add Member
-        JButton btnAddMember = new JButton("Add Member");
-        btnAddMember.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                System.exit(ABORT);
-            }
-        });
-        btnAddMember.setBounds(50, 150, 150, 29);
-        contentPane.add(btnAddMember);
-
-        // Remove Member
-        JButton btnRemoveMember = new JButton("Remove Member");
-        btnRemoveMember.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                System.exit(ABORT);
-            }
-        });
-        btnRemoveMember.setBounds(250, 150, 150, 29);
-        contentPane.add(btnRemoveMember);
+        btnManageMember.setBounds(250, 100, 150, 29);
+        contentPane.add(btnManageMember);
 
         // Search Book
         JButton btnsearchBook = new JButton("Search Book");

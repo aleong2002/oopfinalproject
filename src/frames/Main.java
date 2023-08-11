@@ -1,8 +1,10 @@
+package frames;
+
+import classes.Book;
+import classes.Library;
 
 public class Main {
-    public static LibraryGUI library = new LibraryGUI();
-    public static MemberGUI member = new MemberGUI();
-    public static BookGUI book = new BookGUI();
+    public static Library library = new Library();
 
     public static void main(String[] args) {
         LibraryGUI libfrm = new LibraryGUI();
