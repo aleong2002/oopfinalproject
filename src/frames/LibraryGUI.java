@@ -63,7 +63,8 @@ public class LibraryGUI extends JFrame {
         JButton btnsearchBook = new JButton("Search Book");
         btnsearchBook.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                System.exit(ABORT);
+                SearchBookGUI searchfrm = new SearchBookGUI(Main.library);
+            	searchfrm.show();;
             }
         });
         btnsearchBook.setBounds(150, 200, 150, 29);
