@@ -1,59 +1,91 @@
 package frames;
 
-import classes.Book;
-
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
 
 public class BookGUI extends JFrame {
-    private final JPanel contentPane;
+	private final JPanel contentPane;
+	private Library library;
 
-    public BookGUI() {
-    	setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    	setBounds(100, 100, 450, 400);
-    	contentPane = new JPanel();
-    	contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-    	setContentPane(contentPane);
-    	contentPane.setLayout(null);
+	public BookGUI(Library library) {
+		this.library = library;
+		List<Book> books = library.getBookList();
+		ArrayList<String> bookDisplay = new ArrayList<String>();
 
-    	Book b = new Book("Title", "author", "publisher", "genre", "type");
-    	//Title
-    	String title = b.getTitle(); 
-    	JLabel titleT = new JLabel(title);
-    	titleT.setBounds(20, 30, 89, 16);
-    	contentPane.add(titleT);
-    	
-    	//author
-    	String author = b.getAuthor(); 
-    	JLabel authorA = new JLabel(author);
-    	authorA.setBounds(20, 80, 89, 16);
-    	contentPane.add(authorA);
-    	
-    	//publisher
-    	String publisher = b.getPublisher(); 
-    	JLabel publ = new JLabel(publisher);
-    	publ.setBounds(20, 130, 89, 16);
-    	contentPane.add(publ);
-    	
-    	//genre
-    	String genre = b.getGenre();
-    	JLabel lblGenre = new JLabel(genre);
-		lblGenre.setBounds(20, 180, 89, 16);
-    	contentPane.add(lblGenre);
-    	
-    	//book type
-    	String bookType = b.getBookType();
-    	JLabel BT = new JLabel(bookType);
-    	BT.setBounds(20, 230, 89, 16);
-    	contentPane.add(BT);
-    	
-    	//get Availability
-    	String avail = String.valueOf(b.getAvailability()); 
-    	JLabel availability = new JLabel(avail);
-    	availability.setBounds(20, 280, 89, 16);
-    	contentPane.add(availability);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 400);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
 
-    }
-    
+		// Done button
+		JButton btnDone = new JButton("Done");
+		btnDone.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+			}
+		});
+		btnDone.setBounds(175, 20, 89, 29);
+		contentPane.add(btnDone);
+
+		// catalog is empty
+		if (books.isEmpty()) {
+			String emptyLib = "Catalog is empty.";
+			JLabel EL = new JLabel(emptyLib);
+			EL.setBounds(20, 60, 200, 16);
+			contentPane.add(EL);
+		}
+
+		// catalog is not empty
+		else {
+			JScrollPane bookScrollPane = new JScrollPane();
+			bookScrollPane.setBounds(50, 85, 350, 200);
+			contentPane.add(bookScrollPane);
+			
+			for (Book b : books) {
+				String title = b.getTitle(); 
+				bookDisplay.add(title);
+				
+				String author = b.getAuthor(); 
+				bookDisplay.add("\n\t Author: " + author);
+				
+				String publisher = b.getPublisher(); 
+				bookDisplay.add("\n\t Publisher: " + publisher);
+				
+				String genre = b.getGenre();
+				bookDisplay.add("\n\t Genre: " + genre);
+				
+				String bookType = b.getBookType();
+				bookDisplay.add("\n\t Paperback/Hardback: " + bookType);
+				
+				boolean avail = b.getAvailability(); 
+				String availability;
+				if (avail) {
+					availability = "Available. 1 copy left.";
+				}
+				else {
+					availability = "All copies in use.";
+				}
+				bookDisplay.add("\n\t Availability: " + availability);
+				bookDisplay.add ("\n");
+				
+			}
+
+		}
+
+		// display catalog in JScrollPane
+		JList<String> bookList = new JList<String>(bookDisplay.toArray(new String[bookDisplay.size()]));	    
+		JScrollPane bookScrollPane = new JScrollPane(bookList);
+		bookScrollPane.setBounds(50, 85, 350, 200);
+		contentPane.add(bookScrollPane);
+
+	}
+
+
 }
