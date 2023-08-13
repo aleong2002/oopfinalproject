@@ -27,13 +27,23 @@ public class Library {
         books.remove(book);
     }
 
-    public Book searchBook(String title) { // Could possibly add different ways to search (author, publisher...)
+    public ArrayList searchBook(String search) { 
+    	ArrayList<Book> results = new ArrayList<>();
         for(Book book : books) {
-            if(book.getTitle().equalsIgnoreCase(title)) { // Search is not case sensitive
-                return book;
+            if(book.getTitle().contains(search)) { // Search is not case sensitive
+                results.add(book);
+            }
+            else if (book.getAuthor().contains(search)) { // Search is not case sensitive
+            	results.add(book);
+            }
+            else if (book.getPublisher().contains(search)) { // Search is not case sensitive
+            	results.add(book);
+            }
+            else if (book.getGenre().contains(search)) { // Search is not case sensitive
+            	results.add(book);
             }
         }
-        return null; // Return null if no book is found with the given title (could replace with error message)
+        return results; // Return null if no book is found with the given title (could replace with error message)
     }
 
     // classes.Member methods
