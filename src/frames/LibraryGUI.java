@@ -50,7 +50,7 @@ public class LibraryGUI extends JFrame {
         contentPane.add(btnManageBook);
 
         // Manage Member
-        JButton btnManageMember = new JButton("Manage Member");
+        JButton btnManageMember = new JButton("Manage Members");
         btnManageMember.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 System.exit(ABORT);
