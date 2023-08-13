@@ -10,6 +10,6 @@ public class Main {
         LibraryGUI libfrm = new LibraryGUI();
         libfrm.show();
         
-        Book b = new Book("Title", "author", "publisher", "synopsis", "type");
+        //Book b = new Book("Title", "author", "publisher", "synopsis", "type");
     }
 }
