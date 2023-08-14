@@ -1,5 +1,8 @@
 package frames;
 
+import classes.Book;
+import classes.Library;
+
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
@@ -8,17 +11,17 @@ import java.awt.event.ActionListener;
 import java.util.List;
 
 public class ManageBooks extends JFrame {
-    private JPanel contentPane;
-    private JTextField txtTitle;
-    private JTextField txtAuthor;
-    private JTextField txtPublisher;
-    private JTextField txtGenre;
-    private JTextField txtType;
-    private JButton btnAddBook;
-    private JButton btnRemoveBook;
-    private JButton btnCancel;
-    private JList<Book> bookList;
-    private Library library;
+    private final JPanel contentPane;
+    private final JTextField txtTitle;
+    private final JTextField txtAuthor;
+    private final JTextField txtPublisher;
+    private final JTextField txtGenre;
+    private final JTextField txtType;
+    private final JButton btnAddBook;
+    private final JButton btnRemoveBook;
+    private final JButton btnCancel;
+    private final JList<Book> bookList;
+    private final Library library;
 
     public ManageBooks(Library library) {
         this.library = library;

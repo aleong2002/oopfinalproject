@@ -8,10 +8,10 @@ public class Member {
     // Variables
     private static int memberId = 1;
     private final int id;
-    private String name;
-    private String email;
-    private String phone;
-    private List<Book> borrowedBooks;
+    private final String name;
+    private final String email;
+    private final String phone;
+    private final List<Book> borrowedBooks;
 
     // Constructor
     public Member(String name, String email, String phone) {

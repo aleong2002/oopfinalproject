@@ -21,7 +21,7 @@ public class LibraryGUI extends JFrame {
         btnMemberGUI.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
             	MemberGUI memfrm = new MemberGUI(Main.library);
-                memfrm.show();;
+                memfrm.show();
             }
         });
         btnMemberGUI.setBounds(50, 50, 150, 29);
@@ -32,7 +32,7 @@ public class LibraryGUI extends JFrame {
         btnBookGUI.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
             	BookGUI bookfrm = new BookGUI(Main.library);
-                bookfrm.show();;
+                bookfrm.show();
             }
         });
         btnBookGUI.setBounds(250, 50, 150, 29);
@@ -44,7 +44,7 @@ public class LibraryGUI extends JFrame {
         btnManageBook.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 ManageBooks managebooksfrm = new ManageBooks(Main.library);
-                managebooksfrm.show();;
+                managebooksfrm.show();
             }
         });
         btnManageBook.setBounds(250, 100, 150, 29);
@@ -55,7 +55,7 @@ public class LibraryGUI extends JFrame {
         btnManageMember.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
             	ManageMembers managemembersfrm = new ManageMembers(Main.library);
-                managemembersfrm.show();;
+                managemembersfrm.show();
             }
         });
         btnManageMember.setBounds(50, 100, 150, 29);
@@ -67,7 +67,7 @@ public class LibraryGUI extends JFrame {
         btnsearchBook.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
             	SearchBookGUI searchfrm = new SearchBookGUI(Main.library);
-            	searchfrm.show();;
+            	searchfrm.show();
             }
         });
         btnsearchBook.setBounds(150, 200, 150, 29);

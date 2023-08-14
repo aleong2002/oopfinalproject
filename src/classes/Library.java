@@ -6,8 +6,8 @@ import java.util.List;
 public class Library {
 
     // Variables
-    private List<Book> books;
-    private List<Member> members;
+    private final List<Book> books;
+    private final List<Member> members;
 
     // Constructor
     public Library() {

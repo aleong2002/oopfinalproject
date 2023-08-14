@@ -1,5 +1,8 @@
 package frames;
 
+import classes.Book;
+import classes.Library;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -10,7 +13,7 @@ import javax.swing.border.EmptyBorder;
 
 public class BookGUI extends JFrame {
 	private final JPanel contentPane;
-	private Library library;
+	private final Library library;
 
 	public BookGUI(Library library) {
 		this.library = library;

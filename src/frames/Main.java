@@ -1,5 +1,7 @@
 package frames;
 
+import classes.Library;
+
 public class Main {
     public static Library library = new Library();
 

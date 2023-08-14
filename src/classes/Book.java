@@ -3,11 +3,11 @@ package classes;
 public class Book {
 
     // Variables
-    private String title;
-    private String author;
-    private String publisher;
-    private String genre;
-    private String bookType;
+    private final String title;
+    private final String author;
+    private final String publisher;
+    private final String genre;
+    private final String bookType;
     private boolean availability;
 
     // Constructor

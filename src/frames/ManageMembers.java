@@ -1,5 +1,9 @@
 package frames;
 
+import classes.Book;
+import classes.Library;
+import classes.Member;
+
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
@@ -9,16 +13,16 @@ import java.awt.event.ActionListener;
 import java.util.List;
 
 public class ManageMembers extends JFrame{
-	private JPanel contentPane;
-    private JTextField txtName;
-    private JTextField txtEmail;
-    private JTextField txtPhone;
-    private JButton btnAddMember;
-    private JButton btnRemoveMember;
-    private JButton btnCancel;
+	private final JPanel contentPane;
+    private final JTextField txtName;
+    private final JTextField txtEmail;
+    private final JTextField txtPhone;
+    private final JButton btnAddMember;
+    private final JButton btnRemoveMember;
+    private final JButton btnCancel;
     private JList<Book> borrowedBooks;
-    private JList<Member> membersList;
-    private Library library;
+    private final JList<Member> membersList;
+    private final Library library;
     private Member member;
     
     public ManageMembers(Library library) {
