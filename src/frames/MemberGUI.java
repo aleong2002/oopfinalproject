@@ -9,6 +9,7 @@ import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
 
+
 public class MemberGUI extends JFrame {
 	private final JPanel contentPane;
 	private Library library;
@@ -19,11 +20,12 @@ public class MemberGUI extends JFrame {
 		ArrayList<String> memberDisplay = new ArrayList<String>();
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 400);
+		setBounds(100, 100, 450, 450);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		setTitle("Members");
 
 		// Done button
 		JButton btnDone = new JButton("Done");
@@ -43,9 +45,6 @@ public class MemberGUI extends JFrame {
 		}
 		
 		else {
-			JScrollPane memberScrollPane = new JScrollPane();
-			memberScrollPane.setBounds(50, 85, 350, 200);
-			contentPane.add(memberScrollPane);
 			
 			for (Member m : members) {
 				String name = m.getName(); 
@@ -57,12 +56,12 @@ public class MemberGUI extends JFrame {
 				String phone = m.getPhone(); 
 				memberDisplay.add("\n\t Phone: " + phone);
 				
-				int id = m.getMemberId();
+				String id = String.valueOf(m.getMemberId());
 				memberDisplay.add("\n\t ID: " + id);
 				
 				if (!(m.getBorrowedBooks().isEmpty())) {
 					for (Book b : m.getBorrowedBooks()) {
-						memberDisplay.add(b.getTitle() + ", by " + b.getAuthor());
+						memberDisplay.add("\n\t" + b.getTitle());
 					}
 				}
 				else {
@@ -80,6 +79,78 @@ public class MemberGUI extends JFrame {
 		JScrollPane bookScrollPane = new JScrollPane(memberList);
 		bookScrollPane.setBounds(50, 85, 350, 200);
 		contentPane.add(bookScrollPane);
+		
+		JLabel rb = new JLabel("Select member ID and enter book title: ");
+		rb.setBounds(20, 300, 400, 16);
+        contentPane.add(rb);
+		
+		JTextField bk = new JTextField();
+		bk.setBounds(20, 320, 350, 26);
+		contentPane.add(bk);
+		bk.setColumns(10);
+		
+		JLabel m = new JLabel();
+		m.setBounds(20, 390, 400, 16);
+        contentPane.add(m);
+		
+		
+		JButton btnBorrowBook = new JButton("Borrow");
+		btnBorrowBook.addActionListener(new ActionListener() {
+			String message;
+			String book;
+            public void actionPerformed(ActionEvent e) {
+            	book = bk.getText();
+                String memID = String.valueOf(memberList.getSelectedValue()).substring(7);
+                
+
+                for (Member mem : members) {
+                	if (String.valueOf(mem.getMemberId()).equals(memID)) {
+    
+                		for (Book b : library.getBookList()) {
+                			if (book.equals(b.getTitle())) {
+
+                				message = mem.borrowBook(b);
+                				
+                				m.setText(message);;
+                        		
+                			}
+                		}
+                	}
+                }
+                
+               
+            }
+        });
+		btnBorrowBook.setBounds(200, 360, 130, 29);
+        contentPane.add(btnBorrowBook);
+		
+		JButton btnReturnBook = new JButton("Return");
+		btnReturnBook.addActionListener(new ActionListener() {
+			String message;
+			String book;
+            public void actionPerformed(ActionEvent e) {
+            	book = bk.getText();
+            	String memID = String.valueOf(memberList.getSelectedValue()).substring(7);
+
+                for (Member mem : members) {
+                	if (String.valueOf(mem.getMemberId()).equals(memID)) {
+    
+                		for (Book b : mem.getBorrowedBooks()) {
+                			if (book.equals(b.getTitle())) {
+                				message = mem.returnBook(b);
+                				
+                        		break;
+                               
+                			}
+                		}
+                	}
+                }
+                
+               
+            }
+        });
+		btnReturnBook.setBounds(20, 360, 130, 29);
+        contentPane.add(btnReturnBook);
 
 	}
 
