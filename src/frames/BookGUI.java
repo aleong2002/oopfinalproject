@@ -23,6 +23,7 @@ public class BookGUI extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		setTitle("Catalog");
 
 		// Done button
 		JButton btnDone = new JButton("Done");
@@ -44,9 +45,7 @@ public class BookGUI extends JFrame {
 
 		// catalog is not empty
 		else {
-			JScrollPane bookScrollPane = new JScrollPane();
-			bookScrollPane.setBounds(50, 85, 350, 200);
-			contentPane.add(bookScrollPane);
+			
 			
 			for (Book b : books) {
 				String title = b.getTitle(); 
@@ -80,12 +79,15 @@ public class BookGUI extends JFrame {
 		}
 
 		// display catalog in JScrollPane
-		JList<String> bookList = new JList<String>(bookDisplay.toArray(new String[bookDisplay.size()]));	    
-		JScrollPane bookScrollPane = new JScrollPane(bookList);
+		
+		JScrollPane bookScrollPane = new JScrollPane();
 		bookScrollPane.setBounds(50, 85, 350, 200);
 		contentPane.add(bookScrollPane);
+		
+		JList<String> bookList = new JList<String>(bookDisplay.toArray(new String[bookDisplay.size()]));	    
+		
+		bookScrollPane.setViewportView(bookList);
 
 	}
-
 
 }
