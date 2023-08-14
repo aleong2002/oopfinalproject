@@ -1,14 +1,13 @@
 package classes;
 
-import classes.Book;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class Member {
 
     // Variables
-    private static int memberId;
+    private static int memberId = 1;
+    private final int id;
     private String name;
     private String email;
     private String phone;
@@ -16,7 +15,7 @@ public class Member {
 
     // Constructor
     public Member(String name, String email, String phone) {
-        this.memberId++;
+        this.id = memberId++;
         this.name = name;
         this.email = email;
         this.phone = phone;
@@ -24,20 +23,24 @@ public class Member {
     }
 
     // Getting/Setting availability of the book
-    public void borrowBook(Book book) {
+    public String borrowBook(Book book) {
         if(book.getAvailability()) { // Making sure book is available
             book.setAvailability(false); // Setting the book to be unavailable
             borrowedBooks.add(book);
+            return ("Book borrowed successfully.");
         } else {
-            System.out.println("Book is not available for borrowing.");
+            return ("Book is not available for borrowing.");
         }
     }
 
-    public void returnBook(Book book) {
+    public String returnBook(Book book) {
         if(borrowedBooks.contains(book)) { // Making sure the book was already borrowed
             borrowedBooks.remove(book);
             book.setAvailability(true); // Setting the book to be available again
+            return ("Book returned successfully.");
         }
+        return ("Book has not been borrowed.");
+        
     }
 
     public List<Book> getBorrowedBooks() {
@@ -47,7 +50,7 @@ public class Member {
     // Getters
     // No setters, not sure if any member information should be changed after a member is created
     public int getMemberId() {
-        return memberId;
+        return id;
     }
 
     public String getName() {
