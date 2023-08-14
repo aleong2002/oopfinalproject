@@ -14,12 +14,13 @@ public class LibraryGUI extends JFrame {
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
         setContentPane(contentPane);
         contentPane.setLayout(null);
+        setTitle("Home");
         
      // MemberGUI
         JButton btnMemberGUI = new JButton("Members");
         btnMemberGUI.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-            	MemberGUI memfrm = new MemberGUI();
+            	MemberGUI memfrm = new MemberGUI(Main.library);
                 memfrm.show();;
             }
         });
@@ -27,10 +28,10 @@ public class LibraryGUI extends JFrame {
         contentPane.add(btnMemberGUI);
         
      // BookGUI
-        JButton btnBookGUI = new JButton("Books");
+        JButton btnBookGUI = new JButton("Catalog");
         btnBookGUI.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-            	BookGUI bookfrm = new BookGUI();
+            	BookGUI bookfrm = new BookGUI(Main.library);
                 bookfrm.show();;
             }
         });
@@ -46,24 +47,26 @@ public class LibraryGUI extends JFrame {
                 managebooksfrm.show();;
             }
         });
-        btnManageBook.setBounds(50, 100, 150, 29);
+        btnManageBook.setBounds(250, 100, 150, 29);
         contentPane.add(btnManageBook);
 
-        // Manage Member
+     // Manage Member
         JButton btnManageMember = new JButton("Manage Members");
         btnManageMember.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                System.exit(ABORT);
+            	ManageMembers managemembersfrm = new ManageMembers(Main.library);
+                managemembersfrm.show();;
             }
         });
-        btnManageMember.setBounds(250, 100, 150, 29);
+        btnManageMember.setBounds(50, 100, 150, 29);
         contentPane.add(btnManageMember);
 
+
         // Search Book
-        JButton btnsearchBook = new JButton("Search Book");
+        JButton btnsearchBook = new JButton("Search Catalog");
         btnsearchBook.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                SearchBookGUI searchfrm = new SearchBookGUI(Main.library);
+            	SearchBookGUI searchfrm = new SearchBookGUI(Main.library);
             	searchfrm.show();;
             }
         });
