@@ -1,8 +1,5 @@
 package frames;
 
-import classes.Book;
-import classes.Library;
-
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
@@ -108,7 +105,7 @@ public class ManageBooks extends JFrame {
         btnRemoveBook.setBounds(250, 60, 130, 29);
         contentPane.add(btnRemoveBook);
 
-        btnCancel = new JButton("Cancel");
+        btnCancel = new JButton("Done");
         btnCancel.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 dispose();
