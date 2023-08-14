@@ -1,8 +1,6 @@
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
-//import ManageMembers.BookCellRenderer;
-
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -86,7 +84,7 @@ public class ManageMembers extends JFrame{
         btnRemoveMember.setBounds(250, 60, 140, 29);
         contentPane.add(btnRemoveMember);
 
-        btnCancel = new JButton("Cancel");
+        btnCancel = new JButton("Done");
         btnCancel.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 dispose();
