@@ -7,8 +7,6 @@ import classes.Member;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class MemberGUI extends JFrame {
 	private final JPanel contentPane;
@@ -35,7 +33,7 @@ public class MemberGUI extends JFrame {
 		bookScrollPane.setBounds(50, 85, 350, 200);
 		contentPane.add(bookScrollPane);
 
-		JLabel rb = new JLabel("Select member and enter book title: ");
+		JLabel rb = new JLabel("Select member and enter book id: ");
 		rb.setBounds(20, 300, 400, 16);
 		contentPane.add(rb);
 
@@ -50,13 +48,13 @@ public class MemberGUI extends JFrame {
 
 		JButton btnBorrowBook = new JButton("Borrow");
 		btnBorrowBook.addActionListener(e -> {
-			String bookTitle = bk.getText();
+			String bookId = bk.getText();
 			Member selectedMember = memberList.getSelectedValue();
 
 			if (selectedMember != null) {
 				Book bookToBorrow = null;
 				for (Book b : library.getBookList()) {
-					if (bookTitle.equals(b.getTitle())) {
+					if (bookId.equals(String.valueOf(b.getBookId()))) {
 						bookToBorrow = b;
 						break;
 					}
@@ -76,13 +74,13 @@ public class MemberGUI extends JFrame {
 
 		JButton btnReturnBook = new JButton("Return");
 		btnReturnBook.addActionListener(e -> {
-			String bookTitle = bk.getText();
+			String bookId = bk.getText();
 			Member selectedMember = memberList.getSelectedValue();
 
 			if (selectedMember != null) {
 				Book bookToReturn = null;
 				for (Book b : selectedMember.getBorrowedBooks()) {
-					if (bookTitle.equals(b.getTitle())) {
+					if (bookId.equals(String.valueOf(b.getBookId()))) {
 						bookToReturn = b;
 						break;
 					}

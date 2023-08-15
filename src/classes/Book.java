@@ -3,6 +3,8 @@ package classes;
 public class Book {
 
     // Variables
+    private static int bookId = 1;
+    private final int id;
     private final String title;
     private final String author;
     private final String publisher;
@@ -12,6 +14,7 @@ public class Book {
 
     // Constructor
     public Book(String title, String author, String publisher, String genre, String bookType) {
+        this.id = bookId++;
         this.title = title;
         this.author = author;
         this.publisher = publisher;
@@ -31,6 +34,9 @@ public class Book {
 
     // Getters
     // No setters, not sure if any book information should be changed after a book is created
+    public int getBookId() {
+        return id;
+    }
     public String getTitle() {
         return title;
     }

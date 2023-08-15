@@ -78,10 +78,11 @@ public class SearchBookGUI extends JFrame {
             for (Book b : results) {
                 resultsString.add(b.getTitle());
                 resultsString.add("\n\t Author: " + b.getAuthor());
+                resultsString.add("\n\t Id: " + b.getBookId());
                 resultsString.add("\n\t Publisher: " + b.getPublisher());
                 resultsString.add("\n\t Genre: " + b.getGenre());
                 resultsString.add("\n\t Paperback/Hardback: " + b.getBookType());
-                resultsString.add("\n\t Availability: " + (b.getAvailability() ? "Available. 1 copy left." : "All copies in use."));
+                resultsString.add("\n\t Availability: " + (b.getAvailability() ? "1 copy left." : "All copies in use."));
                 resultsString.add("\n");
             }
         }

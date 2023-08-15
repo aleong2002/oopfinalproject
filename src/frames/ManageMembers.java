@@ -1,6 +1,5 @@
 package frames;
 
-import classes.Book;
 import classes.Library;
 import classes.Member;
 
@@ -20,10 +19,8 @@ public class ManageMembers extends JFrame{
     private final JButton btnAddMember;
     private final JButton btnRemoveMember;
     private final JButton btnCancel;
-    private JList<Book> borrowedBooks;
     private final JList<Member> membersList;
     private final Library library;
-    private Member member;
     
     public ManageMembers(Library library) {
         this.library = library;
