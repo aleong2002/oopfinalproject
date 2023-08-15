@@ -26,18 +26,6 @@ public class LibraryGUI extends JFrame {
         });
         btnMemberGUI.setBounds(50, 50, 150, 29);
         contentPane.add(btnMemberGUI);
-        
-     // BookGUI
-        JButton btnBookGUI = new JButton("Catalog");
-        btnBookGUI.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-            	BookGUI bookfrm = new BookGUI(Main.library);
-                bookfrm.show();
-            }
-        });
-        btnBookGUI.setBounds(250, 50, 150, 29);
-        contentPane.add(btnBookGUI);
-        
 
         // Manage Book
         JButton btnManageBook = new JButton("Manage Books");
@@ -70,7 +58,7 @@ public class LibraryGUI extends JFrame {
             	searchfrm.show();
             }
         });
-        btnsearchBook.setBounds(150, 200, 150, 29);
+        btnsearchBook.setBounds(250, 50, 150, 29);
         contentPane.add(btnsearchBook);
 
         // Exit button
