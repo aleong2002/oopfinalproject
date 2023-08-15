@@ -40,6 +40,9 @@ public class Library {
             else if (book.getGenre().contains(search)) { // Search is not case sensitive
             	results.add(book);
             }
+            else if (String.valueOf(book.getBookId()).contains(search)) { // Search is not case sensitive
+                results.add(book);
+            }
         }
         return results; // Return null if no book is found with the given title (could replace with error message)
     }
